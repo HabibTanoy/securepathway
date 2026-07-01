@@ -1,0 +1,63 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#F7F8FA;color:#0F1F3D;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#E8ECF3;border-radius:3px}
+textarea,input,select,button{font-family:inherit}button{cursor:pointer}
+.fade{animation:fu .22s ease both}@keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pop{animation:pop .3s ease both}@keyframes pop{0%{transform:scale(.85);opacity:0}70%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.shake{animation:shake .3s ease}@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}60%{transform:translateX(4px)}}
+.hcard{transition:box-shadow .18s,transform .18s}.hcard:hover{box-shadow:0 2px 8px rgba(15,32,68,.08),0 8px 24px rgba(15,32,68,.06);transform:translateY(-2px);cursor:pointer}
+.hrow{transition:background .12s}.hrow:hover{background:#F2F4F8!important}
+.qopt{transition:border-color .15s,background .15s}.qopt:hover{border-color:#1B4FE4!important;background:#F2F4F8!important}
+.qopt.correct{border-color:#10A374!important;background:#10A37410!important;animation:pop .25s ease}
+.qopt.wrong{border-color:#E63940!important;background:#B8222A10!important;animation:shake .3s ease}
+.hook-box{background:linear-gradient(135deg,#1A3A6B,#0F2044);border-radius:10px;padding:24px;color:#fff;margin-bottom:20px;border-left:4px solid #C8952A}
+.search-overlay{position:fixed;inset:0;z-index:300;background:rgba(10,20,44,.55);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:80px 20px}
+.bar{transition:width .55s cubic-bezier(.4,0,.2,1)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}.pulse{animation:pulse 2s infinite}
+[dir="rtl"]{font-family:'Segoe UI','Tahoma','Arial',sans-serif}
+
+/* ── WCAG 2.1 AA ─────────────────────────────────────────────────────────── */
+
+/* Visible focus for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #1B4FE4;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure sufficient color contrast on interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #1B4FE4;
+  outline-offset: 2px;
+}
+
+/* Skip nav link (WCAG 2.4.1 Bypass Blocks) */
+.skip-nav:focus {
+  left: 8px !important;
+}
+
+/* Ensure text doesn't get too small for readability (WCAG 1.4.4) */
+html { font-size: 16px; }
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  button, a, input, select { forced-color-adjust: auto; }
+}
+
+/* Reduced motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
