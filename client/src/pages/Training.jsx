@@ -153,7 +153,7 @@ function QuizQuestion({ q, idx, onMCQ, onAdvance, feedback, shortAns, setShortAn
     return (
       <div>
         <p style={{ fontSize:15, fontWeight:600, color:T.ink, lineHeight:1.7, marginBottom:16 }}>{q.q}</p>
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10, marginBottom:16 }}>
+        <div className="sp-two-col" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10, marginBottom:16 }}>
           <div>
             <div style={{ fontSize:10, fontWeight:700, color:T.fog, letterSpacing:'.08em', textTransform:'uppercase', marginBottom:8 }}>Item</div>
             {pairs.map((p, i) => (
@@ -395,7 +395,7 @@ export default function TrainingPage() {
         </div>
       )}
 
-      <main style={{ maxWidth:1100, margin:'0 auto', padding:'24px 20px' }}>
+      <main className="sp-main" style={{ maxWidth:1100, margin:'0 auto', padding:'24px 20px' }}>
 
         {/* ── HOME ── */}
         {screen === 'home' && (
@@ -498,7 +498,7 @@ export default function TrainingPage() {
               })}
             </div>
 
-            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
+            <div className="sp-two-col" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:12 }}>
               <Card hover style={{ padding:16 }} onClick={() => setScreen('sop-lib')}>
                 <div style={{ fontWeight:700, fontSize:13, color:T.ink, marginBottom:4 }}>📋 SOP Library</div>
                 <p style={{ fontSize:12, color:T.fog, lineHeight:1.6, marginBottom:8 }}>{Object.keys(SOP_LIBRARY).length} procedures and working instructions.</p>
@@ -720,7 +720,7 @@ export default function TrainingPage() {
 
             {/* Content */}
             {(hookSubmitted || !HOOK_SCENARIOS[activeMod.id]) && activeSec && (
-              <div style={{ display:'grid', gridTemplateColumns:'190px 1fr', gap:18 }}>
+              <div className="sp-content-grid" style={{ display:'grid', gridTemplateColumns:'190px 1fr', gap:18 }}>
                 {/* Sidebar */}
                 <div>
                   <Card style={{ padding:14, marginBottom:10, position:'sticky', top:76 }}>

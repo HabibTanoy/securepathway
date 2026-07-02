@@ -1,0 +1,287 @@
+/* ── SecurePathway Mobile Responsive Styles ──────────────────────────────────
+   Breakpoints:
+     sm  ≤ 640px   (phones portrait)
+     md  ≤ 768px   (phones landscape / small tablets)
+     lg  ≤ 1024px  (tablets)
+
+   Strategy: all layouts are desktop-first inline styles in the JSX.
+   This file adds media-query overrides using classNames added to key elements.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── GLOBAL HELPERS ──────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  body { font-size: 15px; }
+
+  /* Tighter main padding on phones */
+  .sp-main {
+    padding: 16px 14px !important;
+  }
+}
+
+/* ── NAV BAR ─────────────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Hide text labels from nav links, keep just the active one visible */
+  .sp-nav-links a {
+    padding: 4px 7px !important;
+    font-size: 10px !important;
+  }
+
+  /* Hide lang picker on smallest screens — available in Profile */
+  .sp-nav-lang {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small screens hide all nav links except active */
+  .sp-nav-links {
+    display: none !important;
+  }
+}
+
+/* ── LANDING PAGE ─────────────────────────────────────────────────────────────*/
+@media (max-width: 900px) {
+  /* Hero: collapse 2-col (1fr + 380px sidebar) to single column */
+  .sp-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Hide track sidebar panel on tablets — it shows below hero as main content */
+  .sp-hero-grid > div:nth-child(2) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Tighter hero padding on phones */
+  section[style*="padding:'100px 40px"] ,
+  section[style*='padding:"100px 40px'] {
+    padding: 56px 20px 48px !important;
+  }
+
+  /* Stats bar: 3 cols instead of 6 */
+  .sp-stats-bar {
+    grid-template-columns: repeat(3, 1fr) !important;
+    padding: 0 16px !important;
+  }
+
+  /* How-it-works & testimonials: collapse 2-col */
+  .sp-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Footer layout: stack vertically */
+  footer > div {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+/* ── AUTH PAGES (Login / Register) ───────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Full-bleed cards with less padding */
+  .sp-account-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── TRAINING PAGE ───────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* Section content sidebar: stack instead of 190px sidebar + content */
+  .sp-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Section nav (left column of sp-content-grid) stays full width at top */
+  .sp-content-grid > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid #D8E0EC;
+    padding-bottom: 12px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Quiz matching: stack pairs vertically */
+  .sp-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* XP banner: tighten spacing */
+  .sp-xp-banner {
+    padding: 12px 14px !important;
+  }
+
+  /* Search overlay: full width on mobile */
+  .search-overlay {
+    padding: 60px 12px !important;
+    align-items: flex-start !important;
+  }
+
+  .search-overlay > div {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 10px !important;
+  }
+
+  /* Module content max-width: full width on phone */
+  .fade[style*="maxWidth:660"],
+  .fade[style*="maxWidth:680"],
+  .fade[style*="maxWidth:720"],
+  .fade[style*="maxWidth:760"] {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Hook box padding */
+  .hook-box {
+    padding: 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Quiz options: make touch targets taller */
+  .qopt {
+    padding: 14px 14px !important;
+    min-height: 48px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ── ADMIN PAGE ──────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* Tab bar: horizontal scroll (already has overflowX:auto) */
+  .sp-tab-bar {
+    padding: 0 14px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sp-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Team stat cards: 2 per row */
+  .sp-main > div > div[style*="repeat(auto-fit,minmax(160px"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stat cards: single column */
+  .sp-main > div > div[style*="repeat(auto-fit,minmax(160px"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ── PROFILE PAGE ────────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Profile: full-bleed on phone */
+  main[style*="maxWidth: 720"] {
+    padding: 20px 14px !important;
+  }
+}
+
+/* ── ONBOARDING ──────────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Tour slide padding */
+  div[style*="minHeight: '100vh'"][style*="gradient"] {
+    padding: 20px 20px !important;
+  }
+}
+
+/* ── UNIVERSAL TOUCH IMPROVEMENTS ───────────────────────────────────────────*/
+@media (max-width: 768px) {
+  /* Increase tap target size for all buttons */
+  button, .qopt, [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Buttons inside flex rows — allow wrapping */
+  .sp-btn-row {
+    flex-wrap: wrap !important;
+  }
+
+  /* Cards: remove hover transform on touch (prevents stuck-state on iOS) */
+  .hcard:hover {
+    transform: none !important;
+  }
+  .hcard:active {
+    box-shadow: 0 2px 8px rgba(15,32,68,.12) !important;
+  }
+}
+
+/* ── EMAIL-SAFE INLINE STYLES (for transactional email templates) ────────────
+   These are not page styles — they document the email template design system.
+   All email HTML uses inline styles only for maximum client compatibility.
+   The email.js nodemailer templates already implement this correctly:
+     • max-width 520px container
+     • table-free layout using divs with inline styles
+     • No web fonts (system-ui fallback to Arial)
+     • Background colors on both outer wrapper and inner container
+     • Text colours meeting WCAG AA on white background
+     • CTAs as solid-background anchor tags (not buttons)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── MODAL / OVERLAY CENTERING ───────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Search modal max-width constraint */
+  .search-overlay > div {
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  /* Certificate card: scroll on small screens */
+  div[style*="background:'#FFFDF5'"] {
+    overflow-x: auto !important;
+  }
+}
+
+/* ── TYPOGRAPHY SCALE ────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Reduce oversized display text on mobile */
+  h1[style*="fontSize:'clamp"] {
+    font-size: clamp(26px, 8vw, 40px) !important;
+  }
+}
+
+/* ── ACCESSIBILITY: TOUCH ────────────────────────────────────────────────────*/
+@media (pointer: coarse) {
+  /* Touch devices: larger focus rings */
+  :focus-visible {
+    outline-width: 3px !important;
+    outline-offset: 3px !important;
+  }
+
+  /* Prevent text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* ── LANDSCAPE PHONE ─────────────────────────────────────────────────────────*/
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 480px) {
+  /* Reduce hero padding in landscape mode */
+  .sp-hero-grid {
+    padding: 32px 20px !important;
+  }
+
+  /* Collapse stats bar to 3 cols */
+  .sp-stats-bar {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ── PRINT ───────────────────────────────────────────────────────────────────*/
+@media print {
+  nav, .sp-nav-links, button, .hcard:hover {
+    display: none !important;
+  }
+  body {
+    font-size: 12pt !important;
+    color: #000 !important;
+  }
+}

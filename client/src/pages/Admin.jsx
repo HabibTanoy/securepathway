@@ -191,7 +191,7 @@ export default function AdminPage() {
 
       {/* Tab bar */}
       <div style={{ background: T.white, borderBottom: `1px solid ${T.border}`, position: 'sticky', top: 56, zIndex: 50 }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px', display: 'flex', overflowX: 'auto' }}>
+        <div className="sp-tab-bar" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px', display: 'flex', overflowX: 'auto' }}>
           {TABS.map(([key, label]) => (
             <button key={key} onClick={() => setTab(key)}
               style={{ padding: '14px 18px', border: 'none', borderBottom: `2px solid ${tab === key ? T.blue : 'transparent'}`, background: 'transparent', color: tab === key ? T.blue : T.fog, fontWeight: tab === key ? 700 : 500, fontSize: 13, cursor: 'pointer', whiteSpace: 'nowrap' }}>
@@ -201,7 +201,7 @@ export default function AdminPage() {
         </div>
       </div>
 
-      <main style={{ maxWidth: 1100, margin: '0 auto', padding: '28px 24px' }}>
+      <main className="sp-main" style={{ maxWidth: 1100, margin: '0 auto', padding: '28px 24px' }}>
 
         {/* ── OVERVIEW ── */}
         {tab === 'overview' && (

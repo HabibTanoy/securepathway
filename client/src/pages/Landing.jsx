@@ -43,7 +43,7 @@ export default function LandingPage() {
       {/* Hero */}
       <section style={{ background:T.navy, padding:'100px 40px 80px', position:'relative', overflow:'hidden' }}>
         <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 65% 50%,rgba(27,79,228,.2) 0%,transparent 70%)', pointerEvents:'none' }}/>
-        <div style={{ maxWidth:1080, margin:'0 auto', position:'relative', display:'grid', gridTemplateColumns:'1fr 380px', gap:56, alignItems:'center' }}>
+        <div className="sp-hero-grid" style={{ maxWidth:1080, margin:'0 auto', position:'relative', display:'grid', gridTemplateColumns:'1fr 380px', gap:56, alignItems:'center' }}>
           <div>
             <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(255,255,255,.08)', border:'1px solid rgba(255,255,255,.15)', borderRadius:20, padding:'5px 14px', marginBottom:24, fontSize:11, fontWeight:600, color:'rgba(255,255,255,.6)', letterSpacing:'.08em' }}>
               <div className="pulse" style={{ width:6, height:6, borderRadius:'50%', background:'#10A374' }}/>
@@ -64,7 +64,7 @@ export default function LandingPage() {
             )}
             <div style={{ display:'flex', gap:10, flexWrap:'wrap' }}>
               <Btn v="solid" ac={T.blue} onClick={() => navigate('/training')}>{t('hero_cta1')}</Btn>
-              <Btn v="primary" ac={T.white} onClick={() => navigate('/onboarding')}>{t('hero_cta2')}</Btn>
+              <Btn v="outline" ac="rgba(255,255,255,.6)" onClick={() => navigate('/onboarding')}>{t('hero_cta2')}</Btn>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ export default function LandingPage() {
 
       {/* Stats bar */}
       <div style={{ background:T.white, borderBottom:`1px solid ${T.border}` }}>
-        <div style={{ maxWidth:1080, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(6,1fr)', padding:'0 32px' }}>
+        <div className="sp-stats-bar" style={{ maxWidth:1080, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(6,1fr)', padding:'0 32px' }}>
           {[['36','Weeks'],['6','Tracks'],['36','Modules'],['9','Simulations'],['23','SOPs'],['80%','Pass Mark']].map(([v,l]) => (
             <div key={l} style={{ textAlign:'center', padding:'22px 8px', borderRight:`1px solid ${T.border}` }}>
               <div style={{ fontSize:22, fontWeight:900, color:T.navyM, letterSpacing:'-.03em' }}>{v}</div>
@@ -111,7 +111,7 @@ export default function LandingPage() {
           <div style={{ fontSize:10, fontWeight:700, color:T.blue, letterSpacing:'.1em', textTransform:'uppercase', marginBottom:10 }}>Two Ways to Learn</div>
           <h2 style={{ fontFamily:'Georgia,serif', fontSize:26, fontWeight:700, letterSpacing:'-.025em', color:T.ink }}>One platform, two products.</h2>
         </div>
-        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:24 }}>
+        <div className="sp-two-col" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:24 }}>
           {[
             { icon:'👤', title:'Individual Learner', color:T.blue, colorSolid:T.blue, badge:'B2C', to:'/register', cta:'Enrol as Individual', points:['Self-paced through all six career tracks','Personal SPS credential on completion','Evidence portfolio — exportable as PDF','Spaced repetition — questions resurface','Leaderboard and streak tracking','EN / GA / FR / AR language support'] },
             { icon:'🏢', title:'Organisation Training', color:T.goldText, colorSolid:T.goldSolid, badge:'B2B', to:'/register', cta:'Set Up Organisation', points:['Enrol and manage your team','Upload company SOPs — AI generates modules','Manager dashboard with completion reporting','GDPR compliance matrix per region (IE/UK/EU)','Hard progression gates with manager approval','Company-branded certificates'] },

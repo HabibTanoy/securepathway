@@ -58,7 +58,7 @@ export default function RegisterPage() {
 
         {!accountType && !inviteToken ? (
           <div className="fade">
-            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14, marginBottom:16 }}>
+            <div className="sp-account-cards" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:14, marginBottom:16 }}>
               {[
                 { key:'individual', icon:'👤', title:t('auth_individual'), desc:'Self-paced learning, personal SPS credential' },
                 { key:'company',    icon:'🏢', title:t('auth_company'),    desc:'Team training, company SOP integration, admin dashboard' },

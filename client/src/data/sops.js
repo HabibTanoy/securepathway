@@ -181,5 +181,5 @@ const SOP_LIBRARY = {
     notes: "Advancing a case past a stage gate without completing that stage's requirements is a quality failure. Skipping GDPR_CONFIRMED on a natural person case is a GDPR violation. QC returning a case does not reset the SLA clock — the SLA runs continuously from assignment."
   },
 
-};
+};-e 
 export { SOP_LIBRARY };
