@@ -112,12 +112,17 @@ export function ProgressProvider({ children }) {
     }, 0);
   }, [progress]);
 
+  const xp = calcXP();
+  const overallPct = Math.round(
+    CURRICULUM.reduce((sum, track) => sum + trackPct(track), 0) / CURRICULUM.length
+  );
+
   return (
     <ProgressCtx.Provider value={{
       progress, bookmarks, portfolio, spacedDue, syncing,
       markSection, passQuiz, saveHookResponse, saveNotes,
       toggleBookmark, flagSpaced, resolveSpaced,
-      trackPct, calcXP,
+      trackPct, calcXP, xp, overallPct,
     }}>
       {children}
     </ProgressCtx.Provider>
