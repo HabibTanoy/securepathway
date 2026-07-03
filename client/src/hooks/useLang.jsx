@@ -9,7 +9,7 @@ export function LangProvider({ children }) {
   const t = k => L[k] || LANGS.en[k] || k;
   const changeLang = code => { setLang(code); localStorage.setItem('sp_lang', code); };
   return (
-    <LangCtx.Provider value={{ lang, L, t, changeLang, dir: L.dir || 'ltr' }}>
+    <LangCtx.Provider value={{ lang, L, t, changeLang, LANGS, dir: L.dir || 'ltr' }}>
       {children}
     </LangCtx.Provider>
   );

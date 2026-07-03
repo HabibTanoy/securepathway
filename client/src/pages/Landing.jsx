@@ -64,7 +64,7 @@ export default function LandingPage() {
             )}
             <div style={{ display:'flex', gap:10, flexWrap:'wrap' }}>
               <Btn v="solid" ac={T.blue} onClick={() => navigate('/training')}>{t('hero_cta1')}</Btn>
-              <Btn v="outline" ac="rgba(255,255,255,.6)" onClick={() => navigate('/onboarding')}>{t('hero_cta2')}</Btn>
+              <Btn v="outline" ac="rgba(255,255,255,.9)" style={{ background:'transparent', border:'1.5px solid rgba(255,255,255,.3)' }} onClick={() => navigate('/onboarding')}>{t('hero_cta2')}</Btn>
             </div>
           </div>
 
